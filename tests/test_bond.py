@@ -6,7 +6,7 @@ class TestBondCalculations(unittest.TestCase):
     def test_price(self):
         '''
         Test the price of a bond with the following parameters:
-        - Face value = 1000
+        - Face value = $1,000
         - Coupon rate = 6% (annual)
         - Maturity = 5 years
         - Coupon frequency = 2 (semi-annual)
@@ -41,6 +41,27 @@ class TestBondCalculations(unittest.TestCase):
         expected_mod_duration = 3.428
 
         self.assertAlmostEqual(computed_mod_duration, expected_mod_duration, places=2, msg=f'Computed modified duration {computed_mod_duration} is not close to expected {expected_mod_duration}')
+
+    def test_compute_ytm(self):
+        '''
+        Test the Yield to Maturity for the following bond:
+          - Market Price = $1,100
+          - Face Value = $950
+          - Annual coupon rate = 5%
+          - Maturity = 5 years
+          - Coupon frequency = 1 (annual)
+        '''
+        face_value = 950.0
+        coupon_rate = 0.05
+        maturity = 5
+        coupon_frequency = 1
+        market_price = 1100.0
+        expected_ytm = 0.0168
+
+        bond = Bond(face_value, coupon_rate, maturity, coupon_frequency)
+        computed_ytm = bond.compute_ytm(market_price)
+
+        self.assertAlmostEqual(computed_ytm, expected_ytm, places=3, msg=f'Computed YTM {computed_ytm:.4%} is not close to expected {expected_ytm:.4%}')
 
 if __name__ == '__main__':
     unittest.main()
