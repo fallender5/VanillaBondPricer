@@ -10,7 +10,7 @@ A Python application to compute the price, duration, convexity, and yield-to-mat
    - **Price Calculation**: Discount each coupon and principal repayment by a given yield.
    - **Macaulay Duration & Modified Duration**: Measures of interest rate risk.
    - **Convexity**: Second-order measure of interest rate risk.
-   - **Compute YTM**: Numerical root-finding (Brent’s method) to solve for yield given a market price.
+   - **Compute YTM**: Numerical root-finding (Brent’s method) to solve for yield given a market price (useful for "back-solving" for yield if you know the market price of the bond.
 
 2. **Scenario Analysis** (`main.py`)
    - Demonstrates how to reprice a bond at different yield levels.
