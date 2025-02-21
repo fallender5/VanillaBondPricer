@@ -50,6 +50,7 @@ class TestBondCalculations(unittest.TestCase):
           - Annual coupon rate = 5%
           - Maturity = 5 years
           - Coupon frequency = 1 (annual)
+        Example takes from: https://www.indeed.com/career-advice/career-development/how-to-calculate-yield-to-maturity
         '''
         face_value = 950.0
         coupon_rate = 0.05
